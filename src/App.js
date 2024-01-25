@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import CustomEditor from "./components/CustomEditor";
+import { Toaster } from "react-hot-toast";
 
 function App() {
+  const [saveClicked, setSaveClicked] = useState(false);
+
+  const handleSaveClick = () => {
+    setSaveClicked(true);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="py- 4 lg:py-12">
+      <Toaster />
+      <div className="w-full flex justify-between p-4 lg:px-24">
+        {/* Empty div for alignment  */}
+        <div className="hidden lg:flex"></div>
+        <p className="text-xl font-bold">Demo editor by Joel Jos Joseph</p>
+        <button
+          onClick={handleSaveClick}
+          className="px-4 py-1 border-2 border-black rounded-md font-medium hover:bg-black hover:text-white transition-all ease duration-300"
         >
-          Learn React
-        </a>
-      </header>
+          Save
+        </button>
+      </div>
+      <div className="p-4 lg:px-24 min-h-[90vh] h-full">
+        <CustomEditor
+          saveClicked={saveClicked}
+          setSaveClicked={setSaveClicked}
+        />
+      </div>
     </div>
   );
 }
