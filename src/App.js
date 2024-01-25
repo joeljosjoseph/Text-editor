@@ -22,6 +22,20 @@ function App() {
           Save
         </button>
       </div>
+      <div className="flex justify-center gap-6">
+        <div>
+          <b>#</b> + space = <span className="text-lg">HEADING</span>
+        </div>
+        <div>
+          <b>*</b> + space = <span className="font-bold">BOLD</span>
+        </div>
+        <div>
+          <b>**</b> + space = <span className="text-red-500">RED TEXT</span>
+        </div>
+        <div>
+          <b>***</b> + space = <span className="underline">UNDERLINE</span>
+        </div>
+      </div>
       <div className="p-4 lg:px-24 min-h-[90vh] h-full">
         <CustomEditor
           saveClicked={saveClicked}
